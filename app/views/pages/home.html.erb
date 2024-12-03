@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Bienvenido a nuestro Mercado Artesanal</h1>
+
+    <div class="row">
+      <h2 class="col-12 text-center mb-4">Productos Destacados</h2>
+
+      <% @products.each do |product| %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <%= image_tag product.image_url, alt: product.name, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p><strong>Precio:</strong> <%= number_to_currency(product.price) %></p>
+            </div>
+            <div class="card-footer text-center">
+              <%= link_to "Ver más", product_path(product), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2024 Marketplace Artesanal</p>
+  </footer>
