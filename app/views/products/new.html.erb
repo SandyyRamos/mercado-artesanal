@@ -1,2 +1,13 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1 class="text-center">New Product</h1>
+<div class="w-50 container shadow mt-3 p-5">
+  <ul>
+    <%=simple_form_for @product do |f|%>
+      <li><%=f.input :name %></li>
+      <li><%=f.input :price%></li>
+      <li><%=f.input :description%></li>
+      <li><%=f.input :stock%></li>
+      <li><%=f.association :category%></li>
+      <%=f.submit "Add New Product", class:"btn btn-primary w-100"%>
+    </ul>
+</div>
+<%end%>
