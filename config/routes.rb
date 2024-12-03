@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :products
-  resources :sales, only: [:index, :show]
+  resources :sales, only: [:index, :show, :create]
   get "/sales/my_sales", to: "sales#my_sales"
 
 
