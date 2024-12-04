@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @products = Product.limit(10)
   end
+
+  def my_sales
+    @sales = current_user.sales
+  end
 end

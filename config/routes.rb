@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :products
-  resources :sales, only: [:index, :show, :create] do
-    get "my_sales", on: :member
-  end
+  resources :orders, only: [:index, :show, :create]
+  get "my_sales", to: "pages#my_sales"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

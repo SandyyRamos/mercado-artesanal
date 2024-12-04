@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @sale = Sale.new
+    @order = Order.new
   end
 
   def edit

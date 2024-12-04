@@ -1,0 +1,7 @@
+<% if @orders.present? %>
+  <%= @orders.each do |order| %>
+    <h1><%= order.price %> </h1>
+  <% end %>
+<% else %>
+  <h1>No tienes Ordenes</h1>
+<% end %>

@@ -1,3 +1,7 @@
+Order.destroy_all
+Product.destroy_all
+Category.destroy_all
+User.destroy_all
 # Crear 4 categorías
 categories = Category.create!([
   { name: 'Ceramics' },
@@ -25,12 +29,12 @@ products = []
     stock: rand(1..20),
     user: users[i % 3],  # Asignamos los productos a los tres vendedores
     category: categories.sample  # Asignamos una categoría aleatoria
-  )
-end
+    )
+  end
 
-# Crear 10 ventas (con compradores) y asignarles productos aleatorios
+  # Crear 10 ventas (con compradores) y asignarles productos aleatorios
 10.times do |i|
-  Sale.create!(
+  Order.create!(
     quantity: rand(1..5),
     price: products.sample.price,  # Precio aleatorio basado en el producto
     total: rand(10..100),
