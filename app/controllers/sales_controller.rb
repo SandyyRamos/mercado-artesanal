@@ -15,14 +15,15 @@ class SalesController < ApplicationController
     end
   end
 
-  def show
-    @sale = Sale.find(params[:id])
-  end
-
   def my_sales
     @my_sales = Sale.where(user_id: current_user.id)
     #iterar array en la vista
   end
+  
+  def show
+    @sale = Sale.find(params[:id])
+  end
+
 
   private
   def sale_params
