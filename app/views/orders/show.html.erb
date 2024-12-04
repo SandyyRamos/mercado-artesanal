@@ -1,2 +1,13 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h1 class="text-center my-4">Order Details</h1>
+<div class="card mx-auto" style="width: 40rem;">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Product Sold:</strong> <%= @order.product.name %></h5>
+    <p class="card-text"><strong>Product Description:</strong> <%= @order.product.description %></p>
+    <p class="card-text"><strong>Quantity Sold:</strong> <%= @order.quantity %></p>
+    <p class="card-text"><strong>order Total:</strong> $<%= @order.total %></p>
+    <p class="card-text"><strong>order Date:</strong> <%= @order.sale_date&.strftime("%d/%m/%Y") %></p>
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-4">
+  <%= link_to 'My Orders', orders_path, class: "btn btn-primary" %>
+</div>

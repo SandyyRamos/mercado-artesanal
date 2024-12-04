@@ -1,7 +1,27 @@
-<% if @orders.present? %>
-  <%= @orders.each do |order| %>
-    <h1><%= order.price %> </h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">My Sales</h1>
+  <% if @sales.present? %>
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Sales ID</th>
+          <th>Product Name</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sales.each do |sale| %>
+          <tr>
+            <td><%= sale.id %></td>
+            <td><%= sale.product.name %></td>
+            <td><%= sale.created_at.strftime("%d/%m/%Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="alert alert-warning" role="alert">
+      You have no sales registered.
+    </div>
   <% end %>
-<% else %>
-  <h1>No tienes Ordenes</h1>
-<% end %>
+</div>

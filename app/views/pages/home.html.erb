@@ -1,14 +1,22 @@
 <body class="bg-light">
   <div class="page-wrapper">
-    <!-- Header -->
-    <header class="hero text-black py-5 text-center" style="background-color: #F49CBB; background-size: cover; background-position: center;">
-      <div class="container">
-        <h1 class="fw-bold">Welcome to Mercado Artesanal</h1>
-        <p class="fw-bold">Buy and sell products online quickly and securely.</p>
+    <!-- Header (Texto centrado y video de fondo) -->
+    <header class="hero text-black py-5 text-center" style="position: relative; height: 500px; overflow: hidden;">
+      <!-- Video de fondo -->
+      <video autoplay muted loop id="video-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+        <source src="https://static.vecteezy.com/system/resources/previews/034/047/023/mp4/hippies-and-tribal-necklaces-hanging-in-stall-hawking-crafts-free-video.mp4" type="video/mp4">
+      </video>
+
+      <!-- Capa de superposición oscura -->
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: -1;"></div>
+
+      <!-- Contenedor de texto centrado -->
+      <div class="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; color: white;">
+        <h1 class="fw-bold typing-effect">Welcome to Mercado Artesanal</h1>
+        <p class="fw-bold typing-effect">Buy and sell products online quickly and securely.</p>
       </div>
     </header>
 
-    <!-- Productos destacados -->
     <div class="container my-5">
       <h2 class="text-center mb-4">Most Searched Products</h2>
       <div class="row">

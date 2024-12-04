@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = order.all
-    @user_orders = current_user.my_buys
+    @orders = Order.all
+    @user_orders = current_user.orders
   end
 
   def create
-    @order = order.new(order_params)
+    @order = Order.new(order_params)
     @order.user = current_user
     @product = Product.find(params[:order][:product_id])
     @order.total = @product.price * @order.quantity
@@ -17,12 +17,12 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    @my_orders = order.where(user_id: current_user.id)
+    @my_orders = Order.where(user_id: current_user.id)
     #iterar array en la vista
   end
 
   def show
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
 

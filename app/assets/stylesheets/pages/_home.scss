@@ -3,3 +3,60 @@
   background-color: #F26A8D !important; /* Aquí puedes poner el código HEX que prefieras */
 }
 
+.form-control:focus {
+  border-color: #ffffff; /* Color del borde (puedes cambiar el color aquí) */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Efecto glow con sombra */
+}
+
+.img-hover-opacity {
+  transition: opacity 0.3s ease; /* Agrega una transición suave */
+}
+
+.img-hover-opacity:hover {
+  opacity: 0.7; /* Reduce la opacidad al hacer hover */
+}
+
+.btn-outline-custom {
+  border-color: #c65773;
+  color: #c65773;
+}
+
+.btn-outline-custom:hover {
+  background-color: #ffffff;
+  color: white;
+}
+
+.typing-effect {
+  display: inline-block;  /* Hace que el texto se muestre en una línea */
+  white-space: nowrap;    /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;       /* Oculta el texto mientras se escribe */
+  border-right: 3px solid white;  /* Simula el cursor */
+  padding-right: 5px;     /* Espacio adicional para el cursor */
+  animation: typing 5s steps(50) 1s forwards, blink 0.75s step-end infinite, hideCursor 0s 5s forwards; /* Animaciones: escritura, parpadeo y desaparecer el cursor */
+}
+
+/* Animación de escritura */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%; /* La animación llena el ancho del texto */
+  }
+}
+
+/* Animación para el parpadeo del cursor */
+@keyframes blink {
+  50% {
+    border-color: transparent;  /* El cursor se apaga temporalmente */
+  }
+}
+
+/* Animación para esconder el cursor después de que termine la escritura */
+@keyframes hideCursor {
+  to {
+    border-right: transparent;  /* El cursor desaparece */
+  }
+}
+
+/* Contenedor que alinea los textos verticalmente */
