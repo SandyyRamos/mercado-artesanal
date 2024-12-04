@@ -1,8 +1,8 @@
 # Crear 4 categorías
 categories = Category.create!([
-  { name: 'Ceramica' },
+  { name: 'Ceramics' },
   { name: 'Textiles' },
-  { name: 'Madera' },
+  { name: 'Wood' },
   { name: 'Metal' }
 ])
 
