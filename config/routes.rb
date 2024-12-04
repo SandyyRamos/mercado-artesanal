@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :products
   resources :sales, only: [:index, :show, :create] do
-  get "/sales/my_sales", to: "sales#my_sales"
+    get "my_sales", on: :member
   end
 
 
