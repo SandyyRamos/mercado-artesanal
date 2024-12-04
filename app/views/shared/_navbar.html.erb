@@ -1,36 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <%= image_tag("mercado artesanal color.png", alt: "Mercado Artesanal Logo", class: "img-fluid", style: "max-width: 200px;") %>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <%= image_tag("mercado artesanal color.png", alt: "Mercado Artesanal Logo", class: "img-fluid img-hover-opacity", style: "max-width: 200px;") %>
+        </a>
 
-    </a>
+        <!-- Barra de búsqueda -->
+        <form class="d-flex ms-auto" style="max-width: 500px; flex-grow: 1;">
+          <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="max-width: 100%;"/>
+          <button class="btn btn-outline-custom" type="submit">
+            <i class="bi bi-search" style="color: #c65773;"></i>
+          </button>
+        </form>
 
-    <!-- Barra de búsqueda -->
-    <form class="d-flex ms-auto" style="max-width: 500px; flex-grow: 1;">
-      <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="max-width: 100%;"/>
-      <button class="btn btn-outline-secondary" type="submit">
-        <i class="bi bi-search" style="color: #ffff;"></i>
-      </button>
-    </form>
-
-
-
-    <!-- Menú de navegación -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
-      <%= link_to 'Home', root_path, class: 'nav-link active' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Products', products_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'My orders', sales_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'My sales', my_sales_path, class: 'nav-link' %>
-    </li>
-  </ul>
-    </div>
-  </div>
-</nav>
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link active' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Products', products_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My orders', sales_path, class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
