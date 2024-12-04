@@ -1,13 +1,28 @@
-<h1> <%= @product.name %> </h1>
-<p><%= @product.description %>
-<%= @product.price %>
-<%= @product.stock %></p>
-<!-- <%#= button_to "Comprar", sale_path, method: :post %> -->
+<h1 class="text-center my-4"><%= @product.name %></h1>
 
-<%=simple_form_for @sale do |f|  %>
-  <%= f.hidden_field :sale_date, value: Date.today %>
-  <%= f.hidden_field :product_id, value: @product.id %>
-  <%= f.input :quantity %>
-  <%= f.submit %>
-<% end %>
-<%= params %>
+<div class="card mx-auto" style="width: 40rem;">
+  <div class="card-body">
+    <p class="card-text"><strong>Description:</strong> <%= @product.description %></p>
+    <p class="card-text"><strong>Price:</strong> $<%= @product.price %></p>
+    <p class="card-text"><strong>Available Quantity:</strong> <%= @product.stock %></p>
+  </div>
+</div>
+
+<h2 class="text-center my-4">Place Order</h2>
+
+<div class="card mx-auto" style="width: 40rem;">
+  <div class="card-body">
+    <%= simple_form_for @sale do |f| %>
+      <%= f.hidden_field :sale_date, value: Date.today %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+
+      <div class="mb-3">
+        <%= f.input :quantity, label: "Quantity", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Place Order", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,28 +1,61 @@
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">Bienvenido a nuestro Mercado Artesanal</h1>
+<body class="bg-light">
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="hero text-black py-5 text-center" style="background-color: #F49CBB; background-size: cover; background-position: center;">
+      <div class="container">
+        <h1 class="fw-bold">Welcome to Mercado Artesanal</h1>
+        <p class="fw-bold">Buy and sell products online quickly and securely.</p>
+      </div>
+    </header>
 
-    <div class="row">
-      <h2 class="col-12 text-center mb-4">Productos Destacados</h2>
-
-      <% @products.each do |product| %>
+    <!-- Productos destacados -->
+    <div class="container my-5">
+      <h2 class="text-center mb-4">Most Searched Products</h2>
+      <div class="row">
+        <!-- Producto 1 -->
         <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <%= image_tag product.image_url, alt: product.name, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+          <div class="card shadow-sm">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1" style="object-fit: cover; height: 200px;">
             <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
-              <p class="card-text"><%= product.description %></p>
-              <p><strong>Precio:</strong> <%= number_to_currency(product.price) %></p>
-            </div>
-            <div class="card-footer text-center">
-              <%= link_to "Ver más", product_path(product), class: "btn btn-primary" %>
+              <h5 class="card-title">Producto 1</h5>
+              <p class="card-text">$1000</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
             </div>
           </div>
         </div>
-      <% end %>
+
+        <!-- Producto 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 2" style="object-fit: cover; height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">Producto 2</h5>
+              <p class="card-text">$1500</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 3" style="object-fit: cover; height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">Producto 3</h5>
+              <p class="card-text">$1200</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      <p>&copy; 2024 Mercado Artesanal. Todos los derechos reservados.</p>
+    </footer>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2024 Marketplace Artesanal</p>
-  </footer>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>

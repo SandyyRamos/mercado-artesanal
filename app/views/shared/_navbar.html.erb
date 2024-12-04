@@ -1,55 +1,33 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mx-auto">
-  <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="https://http2.mlstatic.com/static/org-img/homesnw/mercado-libre.png?v=2" alt="Mercado Libre Logo" class="img-fluid" style="max-width: 50px;"/>
+    </a>
+
+    <!-- Barra de búsqueda -->
+    <form class="d-flex ms-auto" style="max-width: 500px; flex-grow: 1;">
+      <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="max-width: 100%;"/>
+      <button class="btn btn-outline-secondary" type="submit">
+        <i class="bi bi-search" style="color: #ffff;"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-         <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-        <ul class="navbar-nav ms-auto">
-           <li class="nav-item">
-              <%= link_to "Inicio", root_path, class: "nav-link" %>
-            </li>
-          <li class="nav-item">
-            <%= link_to "Productos", products_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Vendedores", sales_path, class: "nav-link" %>
-          </li>
-        </ul>
-      </div>
+    </form>
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <!-- Menú de navegación -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <%= link_to 'Home', root_path, class: 'nav-link active' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Products', products_path, class: 'nav-link' %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to 'My sales', sales_path, class: 'nav-link' %>
+    </li>
+  </ul>
     </div>
   </div>
-</div>
+</nav>
