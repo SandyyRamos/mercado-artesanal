@@ -1,0 +1,67 @@
+/* login.scss */
+
+/* Estilos para el contenedor del formulario de login */
+.login-container {
+  background-color: white;  /* Fondo blanco */
+  padding: 30px;            /* Espaciado interno */
+  border-radius: 8px;       /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  width: 100%;
+  max-width: 400px;         /* Ancho máximo para que no ocupe toda la página */
+  margin: 50px auto;        /* Márgenes alrededor y centrado horizontal */
+}
+
+/* Estilo para el título */
+.login-container h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 20px;      /* Separar el título del formulario */
+}
+
+/* Estilo para los campos del formulario */
+.login-form .form-inputs {
+  margin-bottom: 15px; /* Espacio entre los campos */
+}
+
+/* Estilo para el botón de login */
+/* Estilo para el botón de login */
+.form-actions input {
+  background-color: #f7caf1;  /* Fondo azul para el botón */
+  color: #ffff !important;               /* Texto blanco */
+  padding: 10px 20px;         /* Espaciado interno del botón */
+  border: #f7caf1;               /* Sin borde */
+  border-radius: 4px;         /* Bordes redondeados */
+  width: 25%;                /* Ancho completo del contenedor */
+  cursor: pointer;           /* Cambia el cursor a mano */
+  font-size: 16px;            /* Tamaño de la fuente */
+  margin-bottom: 15px;
+}
+
+.form-actions input:hover {
+  border-color: #f7caf1 !important;
+  background-color: #ffffff00 !important;
+  color: #f7caf1 !important;
+}
+
+/* Estilo para los enlaces debajo del formulario (Sign up, Forgot your password) */
+.login-container a {
+  color: #f7caf1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-container .devise-links a {
+  color: #caa7c5;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  color: #caa7c5;
+  text-decoration: underline;
+}
+
+.form-check-input:checked {
+  background-color: #f7caf1;
+  border-color: #f7caf1;
+}
