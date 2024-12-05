@@ -108,3 +108,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_180903) do
   add_foreign_key "sales", "products"
   add_foreign_key "sales", "users"
 end
+
