@@ -5,12 +5,22 @@
         </a>
 
         <!-- Barra de búsqueda -->
-        <form class="d-flex ms-auto" style="max-width: 500px; flex-grow: 1;">
-          <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="max-width: 100%;"/>
-          <button class="btn btn-outline-custom" type="submit">
-            <i class="bi bi-search" style="color: #c65773;"></i>
-          </button>
-        </form>
+       
+
+<!-- Formulario de búsqueda -->
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: root_path, method: :get, class: "d-flex" do |f| %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control" ,
+            placeholder: "Buscar productos..."
+        %>
+          <%= f.button "<i class='bi bi-search' style='color: #c65773;'></i>".html_safe, class: "btn btn-outline-custom" %>
+    <% end %>
+  </div>
+</div>
+<!-- Fin del formulario -->
 
         <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
