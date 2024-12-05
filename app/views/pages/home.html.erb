@@ -18,19 +18,26 @@
     </header>
 
     <div class="container my-5">
-      <h2 class="text-center mb-4">Most Searched Products</h2>
-      <div class="row">
-        <!-- Producto 1 -->
+  <% if @products.present? %>
+    <h2 class="text-center mb-4">Resultados de búsqueda</h2>
+    <div class="row">
+      <% @products.each do |product| %>
         <div class="col-md-4 mb-4">
           <div class="card shadow-sm">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1" style="object-fit: cover; height: 200px;">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="<%= product.name %>" style="object-fit: cover; height: 200px;">
             <div class="card-body">
-              <h5 class="card-title">Producto 1</h5>
-              <p class="card-text">$1000</p>
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text">$<%= product.price %></p>
               <a href="#" class="btn btn-primary">Ver más</a>
             </div>
           </div>
         </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h2 class="text-center mb-4">No se encontraron resultados</h2>
+  <% end %>
+</div>
 
         <!-- Producto 2 -->
         <div class="col-md-4 mb-4">
