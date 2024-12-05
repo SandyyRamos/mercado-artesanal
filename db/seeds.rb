@@ -12,12 +12,14 @@ categories = Category.create!([
 
 # Crear 5 usuarios
 users = User.create!([
-  { email: 'seller1@example.com', password: 'password123' }, # Vendedor 1
-  { email: 'seller2@example.com', password: 'password123' }, # Vendedor 2
-  { email: 'seller3@example.com', password: 'password123' }, # Vendedor 3
-  { email: 'buyer1@example.com', password: 'password123' },  # Comprador 1
-  { email: 'buyer2@example.com', password: 'password123' }   # Comprador 2
+  { email: 'orelm@example.com', password: 'password123' }, # Vendedor 1
+  { email: 'carlau@example.com', password: 'password123' }, # Vendedor 2
+  { email: 'sebastianf@example.com', password: 'password123' }, # Vendedor 3
+  { email: 'sandya@example.com', password: 'password123' },  # Comprador 1
+  { email: 'claudiau@example.com', password: 'password123' }   # Comprador 2
 ])
+
+
 
 # Crear 30 productos (10 para cada vendedor) y asignarles una categoría aleatoria
 products = []
@@ -27,7 +29,7 @@ products = []
     description: "Description of product #{i + 1}",
     price: rand(10..100),
     stock: rand(1..20),
-    user: users[i % 3],  # Asignamos los productos a los tres vendedores
+    user: users[i % 3],  # Asignamos los productrailos a los tres vendedores
     category: categories.sample  # Asignamos una categoría aleatoria
     )
   end
