@@ -6,6 +6,7 @@
     <p class="card-text"><strong>Price:</strong> $<%= @product.price %></p>
     <p class="card-text"><strong>Available Quantity:</strong> <%= @product.stock %></p>
   </div>
+  <%= cl_image_tag(@product.image.key, width: 400, height: 300, crop: :fill) %>
 </div>
 
 <h2 class="text-center my-4">Place Order</h2>
@@ -21,8 +22,9 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        <%= f.submit "Place Order", class: "btn btn-primary" %>
+        <%= f.submit "Buy now", class: "btn btn-primary" %>
       </div>
+
     <% end %>
   </div>
 </div>

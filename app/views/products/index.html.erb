@@ -1,24 +1,22 @@
 <h1 class="text-center mt-5">Products from Mexican Crafts</h1>
-
-<div class="container">
-  <div class="row mb-4">
-    <div class="col-md-12 d-flex justify-content-end">
-      <%= link_to "Add Product", new_product_path, class: 'btn btn-primary' %>
-    </div>
-  </div>
-
+<h5 class="text-center mt-4 mb-5">Explore handcrafted products showcasing Mexico's rich cultural heritage, from vibrant textiles and ceramics to intricate wooden carvings and silver jewelry. Each piece is a testament to traditional craftsmanship.</h5>
 
 <div class="container">
   <div class="row justify-content-center">
     <% @products.each do |product| %>
       <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://img.freepik.com/foto-gratis/cultura-mexicana-taza-pintada_23-2149672979.jpg?t=st=1733333963~exp=1733337563~hmac=1bd5b910095f34e80d07569ede7d727a35405c4cf5bd495fbd77cff49a5a1cb6&w=360" class="card-img-top" alt="<%= product.name %>">
+        <div class="card shadow-sm border-light rounded">
+
+          <div class="img-container" style="height: 350px; overflow: hidden;">
+            <%= cl_image_tag(product.image.key, class: "card-img-top img-fluid mx-auto d-block", alt: product.name, style: "object-fit: cover; height: 100%; width: 100%;") %>
+          </div>
           <div class="card-body">
-            <h5 class="card-title"><%= product.name %></h5>
-            <p class="card-text"><%= number_to_currency(product.price) %></p>
-            <p class="card-text"><%= product.category.name if product.category %></p>
-            <%= link_to 'Buy now', product_path(product), class: 'btn btn-info' %>
+            <h5 class="card-title text-center"><%= product.name %></h5>
+            <p class="card-text text-center"><%= number_to_currency(product.price) %></p>
+            <p class="card-text text-center text-muted"><%= product.category.name if product.category %></p>
+            <div class="d-flex justify-content-center">
+              <%= link_to 'See More', product_path(product), class: 'btn btn-warning btn-sm' %>
+            </div>
           </div>
         </div>
       </div>
