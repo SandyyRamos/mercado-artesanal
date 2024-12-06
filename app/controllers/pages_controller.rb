@@ -3,8 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if params[:query].present?
-      #@products = Product.where("name ILIKE ?", "%#{params[:query]}%")
-      @products = Product.where(name: params[:query])
+      @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
 
     else
       @products = Product.limit(10)
@@ -14,5 +13,5 @@ class PagesController < ApplicationController
   def my_sales
     @sales = current_user.sales
   end
-  
+
 end
