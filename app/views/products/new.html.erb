@@ -7,6 +7,7 @@
       <li><%=f.input :description%></li>
       <li><%=f.input :stock%></li>
       <li><%=f.association :category%></li>
+      <li><%=f.input :image, as: :file%></li>
       <%=f.submit "Add New Product", class:"btn btn-primary w-100"%>
     </ul>
 </div>

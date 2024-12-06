@@ -2,7 +2,12 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @products = Product.limit(10)
+    if params[:query].present?
+      @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
+
+    else
+      @products = Product.limit(10)
+    end
   end
 
   def my_sales

@@ -1,67 +1,86 @@
 <body class="bg-light">
   <div class="page-wrapper">
     <!-- Header (Texto centrado y video de fondo) -->
-    <header class="hero text-black py-5 text-center" style="position: relative; height: 500px; overflow: hidden;">
+    <header class="hero text-black py-5 text-center" style="position: relative; height: 550px; overflow: hidden;">
       <!-- Video de fondo -->
       <video autoplay muted loop id="video-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
         <source src="https://static.vecteezy.com/system/resources/previews/034/047/023/mp4/hippies-and-tribal-necklaces-hanging-in-stall-hawking-crafts-free-video.mp4" type="video/mp4">
       </video>
 
       <!-- Capa de superposición oscura -->
-      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: -1;"></div>
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
 
       <!-- Contenedor de texto centrado -->
       <div class="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; color: white;">
-        <h1 class="fw-bold typing-effect">Welcome to Mercado Artesanal</h1>
-        <p class="fw-bold typing-effect">Buy and sell products online quickly and securely.</p>
+        <h1 class="fw-bold text-shadow">Welcome to Mercado Artesanal</h1>
+        <p class="text-shadow typing-effect text-big">Buy and sell products online quickly and securely.</p>
       </div>
     </header>
 
+    <!-- Sección de Productos -->
     <div class="container my-5">
-      <h2 class="text-center mb-4">Most Searched Products</h2>
-      <div class="row">
+      <% if @products.present? %>
+        <h2 class="text-center mb-4">Resultados de búsqueda</h2>
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="<%= product.name %>" style="object-fit: cover; height: 200px;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.name %></h5>
+                  <p class="card-text">$<%= product.price %></p>
+                  <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <h2 class="text-center mb-4">No se encontraron resultados</h2>
+      <% end %>
+    </div>
+
+    <!-- Sección de Productos Destacados -->
+    <div class="container my-5" style="height: 550px;">
+      <div class="row g-2 d-flex justify-content-center align-items-center" style="height: 100%;">
+        <h2 class="fw-bold text-center mb-2">Most Searched Products</h2>
         <!-- Producto 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1" style="object-fit: cover; height: 200px;">
+        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+          <div class="card shadow-sm" style="max-width: 250px;">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1" style="object-fit: cover; height: 150px;">
             <div class="card-body">
-              <h5 class="card-title">Producto 1</h5>
-              <p class="card-text">$1000</p>
-              <a href="#" class="btn btn-primary">Ver más</a>
+              <h5 class="card-title" style="font-size: 1rem;">Producto 1</h5>
+              <p class="card-text" style="font-size: 0.9rem;">$1000</p>
+              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
             </div>
           </div>
         </div>
 
         <!-- Producto 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 2" style="object-fit: cover; height: 200px;">
+        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+          <div class="card shadow-sm" style="max-width: 250px;">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 2" style="object-fit: cover; height: 150px;">
             <div class="card-body">
-              <h5 class="card-title">Producto 2</h5>
-              <p class="card-text">$1500</p>
-              <a href="#" class="btn btn-primary">Ver más</a>
+              <h5 class="card-title" style="font-size: 1rem;">Producto 2</h5>
+              <p class="card-text" style="font-size: 0.9rem;">$1500</p>
+              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
             </div>
           </div>
         </div>
 
         <!-- Producto 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 3" style="object-fit: cover; height: 200px;">
+        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+          <div class="card shadow-sm" style="max-width: 250px;">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 3" style="object-fit: cover; height: 150px;">
             <div class="card-body">
-              <h5 class="card-title">Producto 3</h5>
-              <p class="card-text">$1200</p>
-              <a href="#" class="btn btn-primary">Ver más</a>
+              <h5 class="card-title" style="font-size: 1rem;">Producto 3</h5>
+              <p class="card-text" style="font-size: 0.9rem;">$1200</p>
+              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-      <p>&copy; 2024 Mercado Artesanal. Todos los derechos reservados.</p>
-    </footer>
   </div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
