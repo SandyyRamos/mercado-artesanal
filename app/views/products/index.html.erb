@@ -1,12 +1,14 @@
 <div class="container text-container mt-5">
-  <h1 class="text-center">Products from Mexican Crafts</h1>
-  <h5 class="text-center mt-4 mb-5">Explore handcrafted products showcasing Mexico's rich cultural heritage, from vibrant textiles and ceramics to intricate wooden carvings and silver jewelry. Each piece is a testament to traditional craftsmanship.</h5>
-</div>
+  <h2 class="text-center fw-bold">Products from Mexican Crafts</h1>
+  <p class="text-center mt-4 mb-3 text-big">Explore handcrafted products showcasing Mexico's rich cultural heritage,<br>
+    from vibrant textiles and ceramics to intricate wooden carvings and silver jewelry. <br>
+    Each piece is a testament to traditional craftsmanship.
+    </p></div>
 
-<div class="container">
+<div class="container my-5">
   <div class="row justify-content-center">
     <% @products.each do |product| %>
-      <div class="col-md-4 mb-4">
+      <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center" >
 
         <div class="card custom-shadow custom-border rounded">
           <div class="img-container" style="height: 350px; overflow: hidden;">

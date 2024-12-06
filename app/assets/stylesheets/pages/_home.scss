@@ -12,12 +12,13 @@
   color: #000000;
 }
 
+
 .custom-link-color:hover {
   color: #000000; /* Example: Bootstrap primary blue */
 }
 
 .custom-link-color {
-  color: #caa7c5;
+  color: #9E01FF;
   font-weight: bolder;
 }
 
@@ -38,28 +39,49 @@
 
 .btn-outline-custom {
   border-color: #9bca4a00;
-  background-color: #f7caf1;
-  color: #795f76;
+  background-color: #FF00FF;
+  color: #ffffff;
   border-radius: 2px;
 }
 
 .btn-outline-custom:hover {
-  border-color: #f7caf1;
+  border-color: #9E01FF;
   background-color: #ffffff00;
-  color: #caa7c5;
+  color: #9E01FF !important;
+}
+
+.btn-outline-custom:hover .bi.bi-search {
+  transition: color 0.3s ease;
+    color: #9E01FF !important;
+}
+
+.btn-outline-custom:hover .form-control {
+  border-color: rgb(158, 1, 255) !important;
+  box-shadow: 0 0 8px rgba(158, 1, 255, 0.6)
 }
 
 .text-big {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+.end {
+  position: absolute;  /* El botón será posicionado absolutamente dentro de la tarjeta */
+  bottom: 0;           /* Pone el botón al final de la tarjeta */
+  left: 0;             /* Alinea el botón a la izquierda */
+  width: 100%;         /* Hace que el botón ocupe todo el ancho de la tarjeta */
+  height: 40px;        /* Asigna una altura fija al botón */
+  display: flex;       /* Asegura que el contenido dentro del botón se alinee correctamente */
+  justify-content: center; /* Centra el texto del botón */
+  align-items: center;
 }
 
 footer {
-  padding-top: 70px;
-  padding-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .bg-custom {
-background-color: #000000;
+background-color: #723395;
 width: auto;
 }
 
@@ -68,6 +90,7 @@ width: auto;
   justify-content: start;
   gap: 20px;
   font-size: 25px;
+  transition: transform 0.3s ease;
 }
 .social-icons li {
   list-style: none;
@@ -77,6 +100,7 @@ width: auto;
 .social-icons a:hover i {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+  color: #FF00FF !important;
 }
 
 .typing-effect {
@@ -100,16 +124,7 @@ width: auto;
 
 /* Animación para el parpadeo del cursor */
 @keyframes blink {
-  50% {
+  0% {
     border-color: transparent;  /* El cursor se apaga temporalmente */
   }
 }
-
-/* Animación para esconder el cursor después de que termine la escritura */
-@keyframes hideCursor {
-  to {
-    border-right: transparent;  /* El cursor desaparece */
-  }
-}
-
-/* Contenedor que alinea los textos verticalmente */
