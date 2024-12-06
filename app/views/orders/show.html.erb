@@ -1,13 +1,20 @@
-<h1 class="text-center my-4">Order Details</h1>
-<div class="card mx-auto" style="width: 40rem;">
-  <div class="card-body">
-    <h5 class="card-title"><strong>Product Sold:</strong> <%= @order.product.name %></h5>
-    <p class="card-text"><strong>Product Description:</strong> <%= @order.product.description %></p>
-    <p class="card-text"><strong>Quantity Sold:</strong> <%= @order.quantity %></p>
-    <p class="card-text"><strong>order Total:</strong> $<%= @order.total %></p>
-    <p class="card-text"><strong>order Date:</strong> <%= @order.sale_date&.strftime("%d/%m/%Y") %></p>
+<div style="margin-top: 50px;">
+</div>
+
+<h1 class="text-center my-4 ticket-title">Order Details</h1>
+
+<div class="ticket-card mx-auto">
+  <div class="ticket-body">
+    <h5 class="ticket-title"><strong>Product Sold:</strong> <%= @order.product.name %></h5>
+    <p class="ticket-text"><strong>Product Description:</strong> <%= @order.product.description %></p>
+    <p class="ticket-text"><strong>Quantity Sold:</strong> <%= @order.quantity %></p>
+    <p class="ticket-text"><strong>Order Total:</strong> $<%= @order.total %></p>
   </div>
 </div>
-<div class="d-flex justify-content-center mt-4">
-  <%= link_to 'My Orders', orders_path, class: "btn btn-primary" %>
+
+<div class="d-flex justify-content-center mt-5">
+  <%= link_to 'My Orders', orders_path, class: "btn btn-primary btn-lg mb-4" %>
+</div>
+
+<div class="container mt-5">
 </div>
