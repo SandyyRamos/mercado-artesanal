@@ -2,12 +2,12 @@
 
 <div class="container">
 <%= simple_form_for @product do |f| %>
-  <%= f.input :name, label: "Nombre del Producto" %>
-  <%= f.input :description, label: "Descripción" %>
-  <%= f.input :price, label: "Precio"%>
-  <%= f.input :stock, label: "Cantidad Disponible" %>
-  <%= f.input :category_id, collection: Category.all, label_method: :name, value_method: :id, prompt: "Selecciona una categoría", label: "Categoría" %>
+  <%= f.input :name, label: "Name" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.input :price, label: "Price"%>
+  <%= f.input :stock, label: "Stock" %>
+  <%= f.input :category_id, collection: Category.all, label_method: :name, value_method: :id, prompt: "Select category", label: "Category" %>
 
-  <%= f.button :submit, "Actualizar Producto", class: "btn btn-primary" %>
+  <%= f.button :submit, "Update", class: "btn btn-primary" %>
 <% end %>
 </div>

@@ -8,4 +8,8 @@ class PagesController < ApplicationController
   def my_sales
     @sales = current_user.sales
   end
+
+  def my_products
+    @products = current_user.products
+  end
 end

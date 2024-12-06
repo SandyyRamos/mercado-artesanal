@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products
   resources :orders, only: [:index, :show, :create]
   get "my_sales", to: "pages#my_sales"
+  get "my_products", to: "pages#my_products"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
