@@ -1,16 +1,10 @@
- <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="<%= root_path %>">
   <%= image_tag("mercado_artesanal_color.png", alt: "Mercado Artesanal Logo", class: "img-fluid img-hover-opacity", style: "max-width: 200px;") %>
 </a>
 
         <!-- Barra de búsqueda -->
-        <form class="d-flex ms-auto" style="max-width: 500px; flex-grow: 1;">
-          <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="max-width: 100%;"/>
-          <button class="btn btn-outline-custom" type="submit">
-            <i class="bi bi-search" style="color: #795f76;"></i>
-          </button>
-        </form>
 
 
 <!-- Formulario de búsqueda -->
@@ -28,7 +22,7 @@
 </div>
 <!-- Fin del formulario -->
 
-        <!-- Menú de navegación -->
+       <!-- Menú de navegación -->
         <div class="collapse navbar-collapse">
   <ul class="navbar-nav ms-auto">
     <li class="nav-item <%= 'active' if current_page?(root_path) %>">

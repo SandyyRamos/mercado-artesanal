@@ -15,4 +15,3 @@ class PagesController < ApplicationController
     @sales = current_user.sales
   end
 end
-
