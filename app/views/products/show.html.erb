@@ -1,10 +1,11 @@
-<h1 class="text-center my-4">Product Information</h1>
+<div style="height: 50px;"></div>
+<h2 class="text-center my-4 fw-bold">Product Information</h1>
 
-<div class="card mx-auto mb-4" style="width: 50rem; border: 1px solid #ccc; padding: 25px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+<div class="card mx-auto mb-4" style="width: 40rem; border: 1px solid #ccc; padding: 25px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
   <div class="card-body">
 
     <div class="text-center mb-3">
-      <%= cl_image_tag(@product.image.key, width: 400, height: 300, crop: :fill, class: "img-fluid rounded") %>
+      <%= cl_image_tag(@product.image.key, width: 200, height: 150, crop: :fill, class: "img-fluid rounded") %>
     </div>
     <h4 class="text-center mb-3"><strong><%= @product.name %></strong></h4>
     <table class="table table-borderless">
@@ -40,3 +41,4 @@
     <% end %>
   </div>
 </div>
+<div style="height: 100px;"></div>

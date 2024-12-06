@@ -8,7 +8,7 @@
       </video>
 
       <!-- Capa de superposición oscura -->
-      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); z-index: -1;"></div>
 
       <!-- Contenedor de texto centrado -->
       <div class="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; color: white;">
@@ -18,71 +18,85 @@
     </header>
 
     <!-- Sección de Productos -->
-    <div class="container my-5">
-      <% if @products.present? %>
-        <h2 class="text-center mb-4">Resultados de búsqueda</h2>
-        <div class="row">
-          <% @products.each do |product| %>
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="<%= product.name %>" style="object-fit: cover; height: 200px;">
-                <div class="card-body">
-                  <h5 class="card-title"><%= product.name %></h5>
-                  <p class="card-text">$<%= product.price %></p>
-                  <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <h2 class="text-center mb-4">No se encontraron resultados</h2>
-      <% end %>
+<!-- Sección de Productos -->
+<div class="container my-5" style="margin-top: 40px;">
+  <h2 class="fw-bold text-center mb-4">Products</h2>
+
+  <!-- Formulario de búsqueda (fuera del condicional de productos) -->
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: "#", method: :get, class: "d-flex justify-content-center" do |f| %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for products..." %>
+        <%= f.button "<i class='bi bi-search' style='color: #ffff;'></i>".html_safe, class: "btn btn-outline-custom" %>
+      <% end %> <!-- Este es el 'end' que cierra el 'form_with' -->
     </div>
+  </div>
+  <!-- Fin del formulario -->
+<% if @products.present? %>
 
-    <!-- Sección de Productos Destacados -->
-    <div class="container my-5" style="height: 550px;">
-      <div class="row g-2 d-flex justify-content-center align-items-center" style="height: 100%;">
-        <h2 class="fw-bold text-center mb-2">Most Searched Products</h2>
-        <!-- Producto 1 -->
-        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
-          <div class="card shadow-sm" style="max-width: 250px;">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1" style="object-fit: cover; height: 150px;">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: 1rem;">Producto 1</h5>
-              <p class="card-text" style="font-size: 0.9rem;">$1000</p>
-              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
-            </div>
-          </div>
-        </div>
+  <!-- Lista de productos -->
+  <div class="row justify-content-center" style="margin-top: 40px;">
+    <% @products.each do |product| %>
+      <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
+        <div class="card shadow-sm" style="height: 400px; width: 250px; display: flex; flex-direction: column;">
+          <!-- Verificamos si el producto tiene una imagen -->
+          <% if product.image.attached? %>
+            <!-- Mostramos la imagen si está adjunta -->
+            <%= image_tag url_for(product.image), class: 'card-img-top', alt: product.name, style: 'object-fit: cover; height: 200px;' %>
+          <% else %>
+            <!-- Si no tiene imagen, mostramos una imagen predeterminada -->
+            <%= image_tag 'default-product-image.jpg', class: 'card-img-top', alt: 'Default Product Image', style: 'object-fit: cover; height: 200px;' %>
+          <% end %>
 
-        <!-- Producto 2 -->
-        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
-          <div class="card shadow-sm" style="max-width: 250px;">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 2" style="object-fit: cover; height: 150px;">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: 1rem;">Producto 2</h5>
-              <p class="card-text" style="font-size: 0.9rem;">$1500</p>
-              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
-            </div>
-          </div>
-        </div>
+          <div class="card-body d-flex flex-column" style="height: 100%;">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text">$<%= product.price %></p>
 
-        <!-- Producto 3 -->
-        <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
-          <div class="card shadow-sm" style="max-width: 250px;">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 3" style="object-fit: cover; height: 150px;">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: 1rem;">Producto 3</h5>
-              <p class="card-text" style="font-size: 0.9rem;">$1200</p>
-              <a href="#" class="btn btn-outline-custom btn-sm">Ver más</a>
+            <!-- Botón de "See more" -->
+            <div class="mt-auto text-center">
+              <%= link_to 'See more', product_path(product), class: 'btn btn-primary' %>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<% else %>
+  <!-- Si no hay productos -->
+  <h2 style="display: flex; justify-content: center; align-items: center; height: 300px;" class="text-center mb-4">
+    Results not found
+  </h2>
+<% end %>
+<!-- Este es el 'end' que cierra el 'if' de @products.present? -->
+
+
+
+<div class="container my-5 py-4 bg-light shadow" style="box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; height: 350px;">
+  <div>
+    <h2 class="fw-bold text-center mb-4">About Us</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <p class="lead text-center">
+          Welcome to Mercado Artesanal! We are an online marketplace that connects artisans and crafters with customers looking for unique, handmade products. Our goal is to provide a platform for local artisans to showcase their work and sell directly to consumers, ensuring fair prices for both buyers and sellers.
+        </p>
+        <p class="text-center">
+          Our team is dedicated to promoting traditional craftsmanship and ensuring that every purchase made through our platform supports local artisans and their communities.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <!-- Aquí va tu siguiente contenido -->
+</div>
+
+
+
+    <!-- JavaScript necesario -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </div> <!-- Fin del page-wrapper -->
 </body>

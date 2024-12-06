@@ -1,14 +1,16 @@
-<h1 class="text-center">New Product</h1>
-<div class="w-50 container shadow mt-3 p-5">
+<div style="height: 50px;"></div>
+<h1 class="text-center fw-bold">New Product</h1>
+<div class="w-50 container shadow mt-5 p-5 justify-content-center">
   <ul>
     <%=simple_form_for @product do |f|%>
-      <li><%=f.input :name %></li>
-      <li><%=f.input :price%></li>
-      <li><%=f.input :description%></li>
-      <li><%=f.input :stock%></li>
-      <li><%=f.association :category%></li>
-      <li><%=f.input :image, as: :file%></li>
+      <li class="fw-bold text-big"><%=f.input :name %></li>
+      <li class="fw-bold text-big"><%=f.input :price%></li>
+      <li class="fw-bold text-big"><%=f.input :description%></li>
+      <li class="fw-bold text-big"><%=f.input :stock%></li>
+      <li class="fw-bold text-big"><%=f.association :category%></li>
+      <li class="fw-bold text-big"><%=f.input :image, as: :file%></li>
       <%=f.submit "Add New Product", class:"btn btn-primary w-100"%>
     </ul>
 </div>
 <%end%>
+<div style="height: 200px;"></div>
