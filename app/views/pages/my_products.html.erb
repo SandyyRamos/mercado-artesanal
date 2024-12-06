@@ -1,29 +1,32 @@
-  <div class="products-container">
-    <h1 class="text-center mb-4">My Products</h1>
+<div class="products-container">
+  <h1 class="text-center mb-4">My Products</h1>
 
-    <div class="container">
-  <div class="row mb-4">
-    <div class="col-md-12 d-flex justify-content-end">
-      <%= link_to "Add Product", new_product_path, class: 'btn btn-primary' %>
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-12 d-flex justify-content-end">
+        <%= link_to "Add Product", new_product_path, class: 'btn btn-primary' %>
+      </div>
     </div>
 
-  <% if @products.present? %>
+    <% if @products.present? %>
       <% @products.each do |product| %>
-<div class="card-product">
-  <img src="https://img.freepik.com/foto-gratis/cultura-mexicana-taza-pintada_23-2149672979.jpg?t=st=1733333963~exp=1733337563~hmac=1bd5b910095f34e80d07569ede7d727a35405c4cf5bd495fbd77cff49a5a1cb6&w=360" />
-  <div class="card-product-infos">
-    <h2><%= product.name %></h2>
-    <p><%= product.description %>
-    <%= product.stock %>
-    <%= product.price %>
-    <%= link_to "Edit", edit_product_path(product.id), class: 'btn btn-primary' %></p>
+        <div class="card-product mb-4 p-3" style="position: relative;">
+          <%= cl_image_tag(product.image.key, alt: product.name, class: "img-fluid mb-2") %>
+          <div class="card-product-infos">
+            <h2><%= product.name %></h2>
+            <p><%= product.description %></p>
+            <p>Price: $<%= product.price %><br>Stock: <%= product.stock %></p>
+          </div>
+          <div class="button-container d-flex justify-content-end" style="position: absolute; right: 10px; bottom: 10px;">
+            <%= link_to "Edit", edit_product_path(product.id), class: 'btn btn-primary me-2' %>
+            <%= button_to "Delete", product_path(product.id), method: :delete, data: { confirm: "Are you sure?", turbo: false }, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-warning" role="alert">
+        You have no products registered.
+      </div>
+    <% end %>
   </div>
-</div>
-        <% end %>
-  <% else %>
-    <div class="alert alert-warning" role="alert">
-      You have no products registered.
-    </div>
-  <% end %>
-</div>
 </div>
