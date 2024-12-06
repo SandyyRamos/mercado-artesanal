@@ -14,4 +14,5 @@ class PagesController < ApplicationController
   def my_sales
     @sales = current_user.sales
   end
+  
 end
