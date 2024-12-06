@@ -1,27 +1,21 @@
-<div class="container mt-5">
+
+<div class="products-container">
   <h1 class="text-center mb-4">My Orders</h1>
-  <% if @orders.present? %>
-    <table class="table table-striped table-bordered table-hover">
-      <thead class="table-dark">
-        <tr>
-          <th>Sales ID</th>
-          <th>Product Name</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.id %></td>
-            <td><%= order.product.name %></td>
-            <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <div class="alert alert-warning" role="alert">
-      You have no sales registered.
-    </div>
-  <% end %>
+    <% if @orders.present? %>
+      <% @orders.each do |order| %>
+        <div class="card-product mb-4 p-3" style="position: relative;">
+          <%= cl_image_tag(order.product.image.key, alt: order.product.name, class: "img-fluid mb-2") %>
+          <div class="card-product-infos">
+            <h2><%= order.product.name %></h2>
+            <p><%= order.product.description %></p>
+            <p>Quantity: <%= order.quantity %><br>Total: $<%= order.total %></p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-warning" role="alert">
+        You have no orders registered.
+      </div>
+    <% end %>
+  </div>
 </div>

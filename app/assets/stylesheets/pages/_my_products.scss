@@ -1,27 +1,26 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-top: 20px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: auto;
+  margin-right: auto; /* Centra la tarjeta horizontalmente */
+  width: 100%; /* Ajuste automático al contenedor */
+  max-width: 1000px; /* Limita el ancho máximo a 1000px */
 }
-
 .card-product img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
-
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
@@ -29,11 +28,10 @@
   margin-bottom: 0;
   margin-top: 8px;
 }
-
 .card-product .card-product-infos {
   padding: 16px;
 }
-
 .products-container {
   margin-top: 50px;
+  text-align: left;
 }

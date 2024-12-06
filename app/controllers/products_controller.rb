@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
-
+  skip_before_action :authenticate_user!, only: [ :index ]
    def index
       @products = Product.all
   end
@@ -28,12 +28,12 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-    redirect_to product_path(@product)
+    redirect_to my_products_path(@product)
   end
 
   def destroy
     @product.destroy
-    redirect_to products_path, status: :see_other
+    redirect_to my_products_path, status: :see_other
   end
 
   private
